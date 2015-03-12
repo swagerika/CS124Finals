@@ -46,6 +46,9 @@ public class MainWindow extends JFrame implements KeyListener, MouseMotionListen
 		canvas = new GameEngine();
 		canvas.setBounds(0,0,getWidth(),getHeight()-30);
 		contentPane.add(canvas);
+		
+		InfoFrame infoFrame = new InfoFrame();
+		infoFrame.setVisible(true);
 
 		canvas.addKeyListener(this);
 		canvas.addMouseMotionListener(this);
