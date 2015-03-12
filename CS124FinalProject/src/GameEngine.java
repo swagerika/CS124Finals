@@ -4,7 +4,7 @@ import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-
+ 
 public class GameEngine extends Canvas{
 	protected final int characterSize = 20;
 	protected double rad;
