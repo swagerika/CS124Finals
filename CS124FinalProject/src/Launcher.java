@@ -8,4 +8,4 @@ public class Launcher {
 		mw.setVisible(true);
 	}
 
-}
+} 
