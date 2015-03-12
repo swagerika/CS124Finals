@@ -7,22 +7,20 @@ import java.util.Scanner;
 public class ZombieFactory {
 	private ArrayList<String> zombieList;
 	private ZombieFlyWeight basis;
-	public ZombieFactory() throws FileNotFoundException{
+	public ZombieFactory(GameEngine ge) throws FileNotFoundException{
 		zombieList = new ArrayList<String>();
-		basis = new ZombieFlyWeight();
+		basis = new ZombieFlyWeight(ge);
 		File zList = new File("zombie.cfg");
 		Scanner in = new Scanner(zList);
 		while(in.hasNextLine()){
 			zombieList.add(in.nextLine().trim());
 			
-		}	
+		}	 
 	}
 
 	public Zombie createZombie(){
-		int chance = (int)(Math.random() * zombieList.size() * 0);
-		//if(chance == 0){
-			//return null;
-		//}
+		int chance = (int)(Math.floor(Math.random() * zombieList.size()));
+		
 		ClassLoader classLoader = ClassLoader.getSystemClassLoader();
 		Class myClass;
 		Zombie thisZombie = null;

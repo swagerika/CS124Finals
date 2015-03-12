@@ -7,9 +7,15 @@ import java.util.ArrayList;
  
 public class GameEngine extends Canvas{
 	protected final int characterSize = 20;
+	protected final int canvasX = 500;
+	protected final int canvasY = 470;
+	
+	protected ZombieFactory factory;
+	
 	protected double rad;
 	protected double mouseX, mouseY;
 	protected ArrayList<Zombie> zombieList = new ArrayList<Zombie>();
+	 
 	
 	public GameEngine() throws FileNotFoundException{
 		setBackground(Color.BLACK);
@@ -17,12 +23,14 @@ public class GameEngine extends Canvas{
 		mouseX = 1;
 		mouseY = 1;
 		
-		ZombieFactory factory = new ZombieFactory();
-		zombieList.add(factory.createZombie());
+		factory = new ZombieFactory(this);
 		
 		Thread repainter = new Thread(new Repainter(this));
 		repainter.start();
 		
+		
+		Thread zMaker = new Thread(new ZombieMaker(this));
+		zMaker.start();
 	}
 	
 	@Override

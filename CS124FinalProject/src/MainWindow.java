@@ -41,7 +41,7 @@ public class MainWindow extends JFrame implements KeyListener, MouseMotionListen
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		contentPane.setLayout(null);
+		contentPane.setLayout(null); 
 		
 		canvas = new GameEngine();
 		canvas.setBounds(0,0,getWidth(),getHeight()-30);
