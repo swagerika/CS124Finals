@@ -10,7 +10,7 @@ public abstract class Zombie {
 		size = source.getSize();
 	}
 	public int getSize(){
-		return size;
+		return size; 
 	}
 	
 	public abstract void draw(Graphics g);
