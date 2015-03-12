@@ -8,7 +8,8 @@ public class NormalZombie extends Zombie{
 		xpos = (int) (Math.random() * 400);
 		ypos = (int) (Math.random() * 400);
 	}
-
+  
+	
 	
 	@Override
 	public void draw(Graphics g){
