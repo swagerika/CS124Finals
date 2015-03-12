@@ -14,6 +14,7 @@ public class ZombieFactory {
 		Scanner in = new Scanner(zList);
 		while(in.hasNextLine()){
 			zombieList.add(in.nextLine().trim());
+			
 		}	
 	}
 
