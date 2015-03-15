@@ -4,14 +4,16 @@ import java.awt.Graphics;
 public abstract class Zombie implements Runnable{
 	private ZombieFlyWeight source;
 	private int size;
-	protected int targetX, targetY;
-	private State state;
-	//private int turnProb;
+	protected int targetX, targetY, xpos, ypos;
+	protected State state;
+	
+	public Zombie(){
+		state = new DefaultState(this);
+	}
 
 	public void setSource(ZombieFlyWeight s){
 		source = s;
 		size = source.getSize();
-		state = null;
 		targetX = source.getTargetX();
 		targetY = source.getTargetY();
 		

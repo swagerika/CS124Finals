@@ -2,10 +2,17 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 public class NormalZombie extends Zombie{
-	private int size, xpos, ypos;
+	private int size;
+	private final int SPAWN_RADIUS = 300;
 	public NormalZombie() {	
-		xpos = (int) (Math.random() * 400);
-		ypos = (int) (Math.random() * 400);
+		xpos = (int) (Math.random() * 300);
+		//ypos = (int) (Math.random() * 400);
+		
+		ypos = (int) (Math.pow(SPAWN_RADIUS,2) - Math.pow(xpos, 2));
+		ypos = (int) Math.sqrt(ypos);
+		
+		// X^2 + Y^2 = R^2
+		// R^2 - X^2  = Y^2
 		
 		Thread runner = new Thread(this);
 		runner.start();
@@ -27,23 +34,7 @@ public class NormalZombie extends Zombie{
 	@Override
 	public void run() {
 		while(true){
-			try {
-				Thread.sleep(10);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-			if(targetX < xpos){
-				xpos--;
-			}
-			if(targetX > xpos){
-				xpos++;
-			}
-			if(targetY < ypos){
-				ypos--;
-			}
-			if(targetY > ypos){
-				ypos++;
-			}
+			state.defaultAction();
 		}
 	}
 	

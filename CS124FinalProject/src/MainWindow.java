@@ -73,7 +73,9 @@ public class MainWindow extends JFrame implements KeyListener, MouseMotionListen
 
 	@Override
 	public void keyTyped(KeyEvent e) {
-		// TODO Auto-generated method stub
+		if(e.getKeyCode() == KeyEvent.VK_SPACE){
+			//canvas
+		}
 		
 	}
 
